@@ -60,3 +60,34 @@ newArticle.setAttribute("id", "everyday");
 newArticle.innerHTML = content;
 
 main.append(newArticle);
+
+const NavItem = (label) => {
+  return (
+    `<li><a href="#">${label}</a></li>`
+  )
+}
+
+const NavListItems = (labels) => {
+  let retStr = ``
+  labels.forEach((label) => {
+    retStr += `${NavItem(label)}`
+  })
+  return retStr
+}
+
+const NavContent = () => {
+  const labels =  ['Home', 'Office', 'School', 'Clinic', 'Movies']
+  return `
+      <ul class="my-list">
+        ${NavListItems(labels)}
+      </ul>  
+  `
+}
+
+
+const newNav = document.createElement('nav');
+newNav.classList.add(".my-nav");
+newNav.setAttribute("id", "myNav");
+newNav.innerHTML = NavContent()
+
+document.body.prepend(newNav)
